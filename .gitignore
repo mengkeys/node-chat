@@ -1,0 +1,15 @@
+.idea/
+client-vux/node_modules
+client-vux/dist
+client-vux/.idea/
+
+client-web/node_modules
+client-web/.idea/
+
+server-api/node_modules
+server-api/.idea/
+server-api/log/
+server-api/
+
+server-socket/node_modules
+server-socket/.idea/
