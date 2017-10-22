@@ -1,0 +1,14 @@
+{
+	"server": {
+		"port": 8000
+	},
+    "mysql": {
+		"connectionLimit" : 20,
+		"host"            : "192.168.0.11",
+		"user"            : "sanou",
+		"port"            :  3306,
+		"password"        : "2FInXFWmv0lDYmkv",
+		"database"        : "chat"
+    },
+	"secret": "hello,world"
+}

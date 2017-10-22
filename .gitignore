@@ -9,7 +9,6 @@ client-web/.idea/
 server-api/node_modules
 server-api/.idea/
 server-api/log/
-server-api/
 
 server-socket/node_modules
 server-socket/.idea/
