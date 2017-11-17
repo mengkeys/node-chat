@@ -4,6 +4,7 @@ export default {
 	login(data, resolve, reject){
 		api.post('/user/login', data).then((resp) => {
 			if(resp.data.code === 0){
+				api.defaults.headers.common['Authorization'] = resp.data.result.token;
 				resolve(resp)
 			} else {
 				reject(new Error(resp.data.result));
@@ -24,7 +25,6 @@ export default {
 			reject(err);
 		});
 	},
-
 	reset(data, resolve, reject){
 		api.post('/user/reset', data).then((resp) => {
 			if(resp.data.code === 0){
@@ -37,7 +37,6 @@ export default {
 			reject(err);
 		});
 	},
-
 	code(data, resolve, reject){
 		api.post('/common/verify/code', data).then((resp) => {
 			if(resp.data.code === 0){
@@ -45,6 +44,19 @@ export default {
 			} else {
 				// 请求失败
 				reject(new Error(resp.data.result));
+			}
+		}).catch((err) => {
+			reject(err);
+		});
+	},
+	search(data, resolve, reject){
+		api.get('/user/search', {
+			params: data
+		}).then((resp) => {
+			if(resp.data.code === 0){
+				resolve(resp);
+			} else {
+				reject(new Error(resp.data.result.message));
 			}
 		}).catch((err) => {
 			reject(err);

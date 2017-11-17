@@ -23,6 +23,9 @@ const store = new Vuex.Store({
 			nickname: '',
 			avatar: ''
 		},
+		search: {
+			results: []
+		},
 		/* 当前聊天的对象 */
 		chat: {
 
@@ -38,7 +41,10 @@ const store = new Vuex.Store({
 		groups
 	},
 	strict: debug,
-	//plugins: [(new VuexPersistence()).plugin]
+
+	plugins: [(new VuexPersistence({
+		key: 'chat'
+	})).plugin]
 });
 
 store.registerModule('vux', { // 名字自己定义

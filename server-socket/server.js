@@ -30,12 +30,13 @@ io.on('connection', function (socket) {
 	socket.login = false;    // 初始状态
 
 	socket.on('login', function(data){
+		console.log('socket.login:', data);
 		// 验证码token
 		if(_.isUndefined(data.token)){
 			socket.emit('login', {code: 1, message: 'token required'});
 			return false;
 		}
-
+		console.log(`data.token: ${data.token}`);
 		const decode = jwt.decode(data.token);
 		if(!decode){
 			// 签名校验错误

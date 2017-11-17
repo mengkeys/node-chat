@@ -1,6 +1,7 @@
 <template>
 	<div class="chat-friend">
-		<x-header>新的朋友</x-header>
+		<x-header>新的朋友
+		<span slot="right" @click="plus"><i class="fa fa-plus fa-fw"></i> </span></x-header>
 		<!--<search></search>-->
 		<group>
 			<friend-item :option="item" v-for="item in list"></friend-item>
@@ -35,6 +36,11 @@
 						avatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508491350805&di=07b6056111afd1a4f1d62f36a4c64e21&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F38dbb6fd5266d0163f0a373d9c2bd40735fa3597.jpg',
 					}
 				]
+			}
+		},
+		methods: {
+			plus(){
+				this.$router.push({name: 'Search'});
 			}
 		}
 	}

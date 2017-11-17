@@ -31,6 +31,11 @@ const router = new Router({
 					component: resolve => require(['@/views/friends'], resolve)
 				},
 				{
+					path: '/search',
+					name: 'Search',
+					component: resolve => require(['@/views/search'], resolve)
+				},
+				{
 					path: '/records',
 					name: 'Records',
 					component: resolve => require(['@/views/records'], resolve)

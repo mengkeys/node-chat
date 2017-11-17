@@ -8,12 +8,32 @@ import App from '@/App'
 import router from '@/router'
 import store from '@/store'
 
+import 'font-awesome/css/font-awesome.min.css'
 import {ToastPlugin, LoadingPlugin, ConfirmPlugin} from 'vux'
 
 Vue.use(ToastPlugin);
 Vue.use(LoadingPlugin);
 Vue.use(ConfirmPlugin);
 
+const IndexDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+let db = null;
+if(!IndexDB){
+	alert("你的浏览器不支持IndexedDB");
+} else {
+	const request = window.indexedDB.open("testDB", 2);
+
+	request.onerror = function(event){
+		console.log("打开DB失败", event);
+	};
+	request.onupgradeneeded   = function(event){
+		console.log("Upgrading");
+		global.db = event.target.result;
+	};
+	request.onsuccess  = function(event){
+		console.log("成功打开DB");
+		global.db = event.target.result;
+	}
+}
 
 FastClick.attach(document.body);
 

@@ -6,3 +6,4 @@ export const RECEIVE_GROUP_LIST    = 'receiveGroupList';
 export const RECEIVE_TOKEN         = 'setLoginToken';
 export const LOGIN_SUCCESS         = 'setLoginStatus';
 export const RECEIVE_USER_INFO     = 'setUserInfo';
+export const RECEIVE_USER_SEARCH_RESULT    = 'setUserSearchResult';

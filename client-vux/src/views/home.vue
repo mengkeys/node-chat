@@ -1,21 +1,21 @@
 <template>
 	<div id="app">
-		聊天
 		<router-view></router-view>
 		<!-- 此处添加 -->
 	</div>
 </template>
 
 <script>
+	import { mapState } from 'vuex'
 	export default {
 		name: 'app',
 		created(){
 			// 账号登录成功,提交login事件
 			// 加载数据信息
 			// 加载好友列表,群列表,
-			
+			console.log(`GLOBAL.DB:`,db);
 			this.$socket.emit('login', {
-				token: localStorage.getItem('token')
+				token: this.$store.state.user.token
 			});
 		},
 		sockets:{

@@ -13,5 +13,8 @@ export default {
 	[types.LOGINOUT_SUCCESS] (){
 		state.login = false;
 		// 调用mutation修改token
+	},
+	[types.RECEIVE_USER_SEARCH_RESULT] (state, payload){
+		state.search.results = payload.list;
 	}
 }

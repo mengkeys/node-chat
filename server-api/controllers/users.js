@@ -79,3 +79,17 @@ exports.nickname = function(request, reply){
 		}
 	});
 };
+
+exports.search = function(request, reply){
+	const keyword = request.query.keyword;
+
+	return mysql.query('SELECT id, nickname FROM user WHERE nickname LIKE "%?%"', keyword.split('').join('%'), function(err, result){
+		if(err){
+			return reply(resp.error(err));
+		}
+		console.log(result);
+		return reply(resp.success({
+			list: result
+		}));
+	});
+};

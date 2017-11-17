@@ -106,7 +106,20 @@ module.exports = [
 			}
 		}
 	},
-
+	{
+		method: 'GET',
+		path: '/user/search',
+		handler: controller.users.search,
+		config: {
+			description: "搜索用户",
+			tags: ['api', 'user'],
+			validate: {
+				query: {
+					keyword: joi.string().min(1).required().description('搜索关键词')
+				}
+			}
+		}
+	},
     {
         method: 'GET',
         path: '/friend/list',
